@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+message PokemonRequest {
+  string name = 1;
+}
+
+message PokemonResponse {
+  string name = 1;
+  int32 hp = 2;
+  int32 atttak = 3;
+  int32 defense = 4;
+  int32 spDefense = 5;
+  int32 spAttack = 6;
+  int32 speed = 7;
+}
+
+
+service PokemonService {
+  rpc PokeDex(PokemonRequest) returns (PokemonResponse);
+}
