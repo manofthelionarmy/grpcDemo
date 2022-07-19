@@ -29,7 +29,13 @@ var pokemon = make([]*Data, 0)
 
 // New creates a new Pokemon gRPC service
 func New() *Pokemon {
-	return &Pokemon{}
+	db := make(map[string]*Data)
+	for _, p := range pokemon {
+		db[p.Name] = p
+	}
+	return &Pokemon{
+		PokemonDb: db,
+	}
 }
 
 // PokeDex returns the a pokemon
